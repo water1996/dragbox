@@ -1,3 +1,6 @@
+/**
+ ** by zhouxiaoben.info
+ **/
 let dragbox = (function () {
   //默认配置
   let defaultOption = {
@@ -30,9 +33,12 @@ let dragbox = (function () {
       }
       oj.getCurrentData = function () {
         let data = []
-        $(element).children('ul').children('li').each(function () {
-          data.push($(this).text())
-        })
+        $(element)
+          .children('ul')
+          .children('li')
+          .each(function () {
+            data.push($(this).text())
+          })
         return data
       }
       oj.bindFunction = function () {
