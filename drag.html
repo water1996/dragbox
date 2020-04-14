@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>拖拽排序</title>
+    <link type="text/css" rel="stylesheet" href="./commom/css/dragbox.css" />
+  </head>
+  <style>
+    .center {
+      margin: 0 auto;
+    }
+  </style>
+
+  <body>
+    <h1>width:100%</h1>
+    <div id="test1"></div>
+    <h1>width:400px</h1>
+    <div id="test2"></div>
+
+    <h1>inside</h1>
+    <div
+      style="
+        height: 60px;
+        width: 600px;
+        overflow-y: scroll;
+        padding-top: 100px;
+      "
+    >
+      <div id="test3"></div>
+    </div>
+  </body>
+</html>
+<script src="./commom/js/jquery-3.1.1.min.js"></script>
+<script src="./commom/js/dragbox.js"></script>
+<script>
+  /**
+   * option1
+   * */
+  option1 = {
+    dragbox: {
+      width: '100%',
+      fontSize: '16px',
+      backgroundColor: '#87cefa',
+    },
+    draglist: {
+      listSize: 6,
+      height: '60px',
+      data: [
+        'item1',
+        'item2',
+        'item3',
+        'item4',
+        'item5',
+        'item6',
+        'item7',
+        'item8',
+        'item9',
+      ],
+      margin: '1.3%',
+      backgroundColor: ['#00ae9d', '#11264f', '#2570a1'],
+    },
+  }
+
+  let t1 = dragbox.init(document.getElementById('test1'))
+  t1.setOption(option1)
+  t1.bindFunction(test1, test2)
+  function test1() {
+    console.log(t1.getCurrentData())
+    console.log('执行第一个方法')
+  }
+  function test2() {
+    console.log('执行第二个方法')
+  }
+
+  /**
+   * option2
+   * */
+  option2 = {
+    dragbox: {
+      width: '600px',
+      fontSize: '16px',
+      backgroundColor: '#87cefa',
+    },
+    draglist: {
+      listSize: 4,
+      height: '30px',
+      data: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+      margin: '1.9%',
+      backgroundColor: ['#00ae9d', '#11264f', '#2570a1'],
+    },
+  }
+  let t2 = dragbox.init(document.getElementById('test2'))
+  t2.setOption(option2)
+
+  /**
+   * option3
+   * */
+  option3 = {
+    dragbox: {
+      width: '100%',
+      fontSize: '16px',
+      backgroundColor: '#87cefa',
+    },
+    draglist: {
+      listSize: 4,
+      height: '30px',
+      data: ['1', '2', '3', '4', '5', '6', '7', '8', '9'],
+      margin: '2%',
+      backgroundColor: ['#00ae9d', '#11264f', '#2570a1'],
+    },
+  }
+  let t3 = dragbox.init(document.getElementById('test3'))
+  t3.setOption(option3)
+</script>

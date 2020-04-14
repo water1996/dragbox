@@ -1,0 +1,32 @@
+.drag-box {
+  background-color: #87cefa;
+  position: relative;
+}
+
+.drag-box > ul {
+  margin: 0;
+  padding: 0;
+  word-spacing: -5px;
+}
+
+.drag-box > ul > li {
+  overflow: hidden;
+  display: inline-block;
+  background-color: #009ad6;
+  border: 1px solid transparent;
+  color: white;
+  user-select: none;
+  cursor: move;
+  width: 23%;
+  height: 40px;
+  vertical-align: top;
+  margin: 1%;
+  box-sizing: border-box;
+  text-align: center;
+  line-height: 60px;
+}
+
+.drag-box > ul .drag-new-tag {
+  border: 3px dotted orange;
+  background-color: transparent;
+}
