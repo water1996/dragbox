@@ -41,7 +41,7 @@
 #### 5.绑定拖拽完成后触发的方法(绑定多个，按顺序执行)
 ```
   function test1() {
-    console.log(t1.getCurrentData())
+    console.log(oj.getCurrentData())
     console.log('执行第一个方法')
   }
   function test2() {
