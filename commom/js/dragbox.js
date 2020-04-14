@@ -1,3 +1,6 @@
+/**
+ ** by zhouxiaoben.info
+ **/
 let dragbox = (function () {
   //默认配置
   let defaultOption = {
