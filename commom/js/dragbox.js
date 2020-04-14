@@ -1,6 +1,17 @@
 /**
  ** by zhouxiaoben.info
  **/
+
+$(document).unbind('mousewheel')
+document.addEventListener(
+  'mousewheel',
+  function (e, delta) {
+    return true
+  },
+  {
+    passive: false,
+  }
+)
 let dragbox = (function () {
   //默认配置
   let defaultOption = {
@@ -133,6 +144,7 @@ let dragbox = (function () {
     let pheight = $(element).height()
     let newTag = "<li class='drag-new-tag'></li>"
 
+    //$(document).on('mousewheel', )
     //鼠标按下事件
     dragLi.off('mousedown').on('mousedown', function (e) {
       let dx = $(element).offset().left
@@ -206,6 +218,10 @@ let dragbox = (function () {
           let moveTop = clientY - height / 2
           $(target).css('left', moveLeft + 'px')
           $(target).css('top', moveTop + 'px')
+          //禁止鼠标滚动
+          $(target).on('mousewheel', function () {
+            event.preventDefault()
+          })
         })
 
       //松开鼠标事件
@@ -250,6 +266,7 @@ let dragbox = (function () {
                 val()
               }
             }
+            //执行绑定事件
             if (
               typeof bfunctions != 'undefined' &&
               typeof bfunctions == 'function'
