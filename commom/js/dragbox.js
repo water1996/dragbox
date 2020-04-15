@@ -137,7 +137,6 @@ let dragbox = (function () {
   //初始化拖拽元素
   function initDragBox(element, option, bfunctions) {
     buildElement(element, option)
-
     let dragLi = $(element).children('ul').children('li')
     let isDown = false
     let pwidth = $(element).width()
@@ -159,10 +158,10 @@ let dragbox = (function () {
       //当前元素高度和宽度
       let width =
         $(target).outerWidth() +
-        parseInt($(target).css('margin').replace('px', '')) * 2
+        parseInt($(target).css('margin-top').replace('px', '')) * 2
       let height =
         $(target).outerHeight() +
-        parseInt($(target).css('margin').replace('px', '')) * 2
+        parseInt($(target).css('margin-top').replace('px', '')) * 2
       //每行可以容纳的元素个数
       let n = parseInt($(target).parent('ul').width() / width)
       $(target).attr('id', 'moveLi')

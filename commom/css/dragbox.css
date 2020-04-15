@@ -19,6 +19,9 @@
   border: 1px solid transparent;
   color: white;
   user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
   cursor: move;
   width: 23%;
   height: 40px;
