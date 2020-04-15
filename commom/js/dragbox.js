@@ -142,8 +142,8 @@ let dragbox = (function () {
     let pwidth = $(element).width()
     let pheight = $(element).height()
     let newTag = "<li class='drag-new-tag'></li>"
+    let explorer = window.navigator.userAgent
 
-    //$(document).on('mousewheel', )
     //鼠标按下事件
     dragLi.off('mousedown').on('mousedown', function (e) {
       let dx = $(element).offset().left
@@ -218,25 +218,27 @@ let dragbox = (function () {
           $(target).css('left', moveLeft + 'px')
           $(target).css('top', moveTop + 'px')
           //禁止鼠标滚动
-          $(target).bind('mousewheel', function () {
-            console.log('移动')
-            event.preventDefault()
-          })
-          //禁止鼠标滚动、兼容Firefox
-          target.addEventListener(
-            'DOMMouseScroll',
-            function () {
+          if (explorer.indexOf('Firefox') != -1) {
+            $(target).bind('DOMMouseScroll', function () {
               event.preventDefault()
-            },
-            false
-          )
+            })
+          } else {
+            $(target).bind('mousewheel', function () {
+              event.preventDefault()
+            })
+          }
         })
 
       //松开鼠标事件
       $(document)
         .off('mouseup')
         .on('mouseup', function (e) {
-          $(target).unbind('mousewheel')
+          if (explorer.indexOf('Firefox') != -1) {
+            $(target).unbind('DOMMouseScroll')
+          } else {
+            $(target).unbind('mousewheel')
+          }
+
           let clientX = e.clientX - dx
           let clientY = e.clientY - dy
           //计算移到第几个元素
