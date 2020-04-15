@@ -219,8 +219,17 @@ let dragbox = (function () {
           $(target).css('top', moveTop + 'px')
           //禁止鼠标滚动
           $(target).bind('mousewheel', function () {
+            console.log('移动')
             event.preventDefault()
           })
+          //禁止鼠标滚动、兼容Firefox
+          target.addEventListener(
+            'DOMMouseScroll',
+            function () {
+              event.preventDefault()
+            },
+            false
+          )
         })
 
       //松开鼠标事件
