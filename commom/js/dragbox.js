@@ -219,7 +219,7 @@ let dragbox = (function () {
           $(target).css('left', moveLeft + 'px')
           $(target).css('top', moveTop + 'px')
           //禁止鼠标滚动
-          $(target).on('mousewheel', function () {
+          $(target).bind('mousewheel', function () {
             event.preventDefault()
           })
         })
@@ -228,6 +228,7 @@ let dragbox = (function () {
       $(document)
         .off('mouseup')
         .on('mouseup', function (e) {
+          $(target).unbind('mousewheel')
           let clientX = e.clientX - dx
           let clientY = e.clientY - dy
           //计算移到第几个元素
